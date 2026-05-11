@@ -5,7 +5,7 @@ const CTA = () => {
   return (
     <section className="cta-section">
       <div className="container">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -17,8 +17,12 @@ const CTA = () => {
             <p>Contact us today for a free consultation and personalized security assessment.</p>
           </div>
           <div className="cta-action">
-            <button className="btn btn-primary">Get A Free Quote</button>
-            <button className="btn btn-outline" style={{ color: 'white', borderColor: 'white' }}>Contact Us</button>
+            <a href="https://wa.me/9779841000000" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+              WhatsApp Us
+            </a>
+            <a href="tel:+9779841000000" className="btn btn-primary">
+              Call Now
+            </a>
           </div>
         </motion.div>
       </div>

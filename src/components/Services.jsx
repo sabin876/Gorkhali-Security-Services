@@ -25,33 +25,23 @@ const Services = () => {
   const services = [
     {
       icon: Shield,
-      title: "VIP Bodyguard",
-      description: "Elite protection for high-profile individuals, ensuring safety in all environments."
-    },
-    {
-      icon: Truck,
-      title: "Armored Transport",
-      description: "Secure transportation of high-value assets and cash with professional security teams."
+      title: "Sports Club Security",
+      description: "Dedicated security solutions for sports clubs, ensuring a safe environment for athletes and fans."
     },
     {
       icon: Users,
-      title: "Event Security",
-      description: "Comprehensive crowd management and security solutions for large-scale events."
-    },
-    {
-      icon: Video,
-      title: "CCTV Monitoring",
-      description: "24/7 remote surveillance and threat detection using advanced monitoring technology."
+      title: "Events Security",
+      description: "Comprehensive crowd management and security solutions for large-scale professional events."
     },
     {
       icon: UserPlus,
-      title: "Private Investigation",
-      description: "Professional investigation services for corporate and personal security matters."
+      title: "Body Guard",
+      description: "Elite protection for high-profile individuals, ensuring personal safety in all environments."
     },
     {
-      icon: FileText,
-      title: "Security Audit",
-      description: "In-depth risk assessment and security planning for homes and businesses."
+      icon: Shield,
+      title: "General Security",
+      description: "Versatile security services tailored for businesses, residential areas, and industrial sites."
     }
   ];
 

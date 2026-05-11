@@ -38,7 +38,7 @@ const Hero = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="subtitle"
+            className="subtitle text-red"
           >
             Professional Security Services
           </motion.span>
@@ -49,7 +49,7 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Securing Your <span className="text-primary">World</span> With Expert Care
+            Securing Your <span className="text-red">World</span> With Expert Care
           </motion.h1>
           
           <motion.p

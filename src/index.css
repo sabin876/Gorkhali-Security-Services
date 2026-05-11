@@ -88,6 +88,7 @@ section {
 
 /* Utility Classes */
 .text-primary { color: var(--primary); }
+.text-red { color: #eb0109; }
 .bg-primary { background-color: var(--primary); }
 .bg-secondary { background-color: var(--secondary); }
 .bg-light { background-color: var(--bg-light); }
@@ -125,6 +126,53 @@ section {
 .btn-outline:hover {
   background-color: var(--primary);
   color: var(--secondary);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* Floating CTA */
+.floating-cta {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.floating-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: var(--transition);
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+}
+
+.floating-btn.whatsapp {
+  background-color: #25D366;
+}
+
+.floating-btn.call {
+  background-color: var(--primary);
 }
 
 .section-header {
@@ -368,7 +416,7 @@ header.scrolled {
 }
 
 .hero-content .subtitle {
-  color: var(--primary);
+  color: #eb0109;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 4px;

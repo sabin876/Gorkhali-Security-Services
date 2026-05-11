@@ -7,6 +7,7 @@ import Team from '../components/Team';
 import Vacancy from '../components/Vacancy';
 import CTA from '../components/CTA';
 import Testimonials from '../components/Testimonials';
+import FloatingCTA from '../components/FloatingCTA';
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Vacancy />
       <CTA />
       <Testimonials />
+      <FloatingCTA />
     </>
   );
 };
