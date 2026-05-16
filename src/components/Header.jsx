@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { Phone, Mail, Clock, Menu, X, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Phone, Mail, Clock, Menu, X } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram } from './SocialIcons';
 import logo from '../assets/logo.jpeg';
 
 const Header = ({ isScrolled }) => {

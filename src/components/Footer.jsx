@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { Phone, Mail, MapPin, ArrowRight, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram } from './SocialIcons';
 import logo from '../assets/logo.jpeg';
 
 const Footer = () => {
