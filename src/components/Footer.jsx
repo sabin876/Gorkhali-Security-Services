@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { Phone, Mail, MapPin, ArrowRight, Share2, ExternalLink, Globe, MessageSquare } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import logo from '../assets/logo.jpeg';
 
 const Footer = () => {
@@ -19,10 +19,10 @@ const Footer = () => {
               employees, and loved ones with unmatched expertise and technology.
             </p>
             <div className="social-icons">
-              <a href="#"><Share2 size={22} /></a>
-              <a href="#"><ExternalLink size={22} /></a>
-              <a href="#"><Globe size={22} /></a>
-              <a href="#"><MessageSquare size={22} /></a>
+              <a href="#" aria-label="Facebook"><Facebook size={22} /></a>
+              <a href="#" aria-label="Twitter"><Twitter size={22} /></a>
+              <a href="#" aria-label="LinkedIn"><Linkedin size={22} /></a>
+              <a href="#" aria-label="Instagram"><Instagram size={22} /></a>
             </div>
           </div>
           

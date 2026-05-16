@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { Phone, Mail, Clock, Menu, X } from 'lucide-react';
+import { Phone, Mail, Clock, Menu, X, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import logo from '../assets/logo.jpeg';
 
 const Header = ({ isScrolled }) => {
@@ -22,10 +22,10 @@ const Header = ({ isScrolled }) => {
               <span><Clock size={16} /> 24/7 Security Support</span>
             </div>
             <div className="social-links">
-              <a href="#">FB</a>
-              <a href="#">TW</a>
-              <a href="#">LI</a>
-              <a href="#">IG</a>
+              <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
+              <a href="#" aria-label="Twitter"><Twitter size={18} /></a>
+              <a href="#" aria-label="LinkedIn"><Linkedin size={18} /></a>
+              <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
             </div>
           </div>
         </div>
