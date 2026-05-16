@@ -59,7 +59,7 @@ const Team = () => {
     },
     {
       name: "Bijayata Hamal",
-      role: "Cyber Security",
+      role: "Chief Technical Officer",
       image: cyberSecurityImg
     }
   ];

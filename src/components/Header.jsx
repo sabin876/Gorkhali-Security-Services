@@ -63,7 +63,7 @@ const Header = ({ isScrolled }) => {
               <li><HashLink smooth to="/#home">Home</HashLink></li>
               <li><HashLink smooth to="/#about">About Us</HashLink></li>
               <li><HashLink smooth to="/#services">Services</HashLink></li>
-              <li><Link to="/team">Our Team</Link></li>
+              <li><HashLink smooth to="/team#team">Our Team</HashLink></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
             
@@ -90,7 +90,7 @@ const Header = ({ isScrolled }) => {
                   { to: "/#home", label: "Home" },
                   { to: "/#about", label: "About Us" },
                   { to: "/#services", label: "Services" },
-                  { to: "/team", label: "Our Team", isLink: true },
+                  { to: "/team#team", label: "Our Team" },
                   { to: "/contact", label: "Contact", isLink: true }
                 ].map((link, i) => (
                   <motion.li 
