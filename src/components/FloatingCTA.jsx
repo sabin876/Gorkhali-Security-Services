@@ -6,7 +6,7 @@ const FloatingCTA = () => {
   return (
     <div className="floating-cta">
       <motion.a 
-        href="tel:+9779841000000"
+        href="tel:+97143335630"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1 }}
@@ -17,7 +17,7 @@ const FloatingCTA = () => {
       </motion.a>
       
       <motion.a 
-        href="https://wa.me/9779841000000"
+        href="https://wa.me/971545337070"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}

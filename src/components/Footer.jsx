@@ -32,7 +32,6 @@ const Footer = () => {
               <li><HashLink smooth to="/#home"><ArrowRight size={16} /> Home</HashLink></li>
               <li><HashLink smooth to="/#about"><ArrowRight size={16} /> About Us</HashLink></li>
               <li><HashLink smooth to="/#services"><ArrowRight size={16} /> Our Services</HashLink></li>
-              <li><HashLink smooth to="/#team"><ArrowRight size={16} /> Meet The Team</HashLink></li>
               <li><Link to="/contact"><ArrowRight size={16} /> Contact Us</Link></li>
             </ul>
           </div>
@@ -40,12 +39,10 @@ const Footer = () => {
           <div className="footer-links">
             <h3>Our Services</h3>
             <ul>
-              <li><a href="#"><ArrowRight size={16} /> VIP Bodyguard</a></li>
-              <li><a href="#"><ArrowRight size={16} /> Armored Transport</a></li>
-              <li><a href="#"><ArrowRight size={16} /> Event Security</a></li>
-              <li><a href="#"><ArrowRight size={16} /> CCTV Monitoring</a></li>
-              <li><a href="#"><ArrowRight size={16} /> Risk Management</a></li>
-              <li><a href="#"><ArrowRight size={16} /> Asset Protection</a></li>
+              <li><Link to="/services/sports-club-security" state={{ description: "Dedicated security solutions for elite sports clubs, ensuring safe environments with specialized crowd management." }}><ArrowRight size={16} /> Sports Club Security</Link></li>
+              <li><Link to="/services/events-security" state={{ description: "Comprehensive security for high-profile events, festivals, and corporate gatherings with professional coordination." }}><ArrowRight size={16} /> Events Security</Link></li>
+              <li><Link to="/services/elite-bodyguards" state={{ description: "VIP personal protection for high-profile individuals, ensuring privacy and safety in any environment." }}><ArrowRight size={16} /> Elite Bodyguards</Link></li>
+              <li><Link to="/services/general-security" state={{ description: "Advanced 24/7 monitoring and physical security for high-end residential and commercial assets." }}><ArrowRight size={16} /> General Security</Link></li>
             </ul>
           </div>
           
@@ -53,11 +50,11 @@ const Footer = () => {
             <h3>Contact Info</h3>
             <div className="contact-item">
               <MapPin className="text-primary" size={24} />
-              <p>123 Security Plaza, New York, NY 10001, USA</p>
+              <p>Office #602, NBQ Bank Building, Khalid Bin Al Waleed Road, Dubai, UAE</p>
             </div>
             <div className="contact-item">
               <Phone className="text-primary" size={24} />
-              <p>+1 (555) 000-1234</p>
+              <p>+971 4 333 5630</p>
             </div>
             <div className="contact-item">
               <Mail className="text-primary" size={24} />

@@ -5,7 +5,7 @@ import bg1 from '../assets/Background 1.webp';
 import bg2 from '../assets/Background 2.jpeg';
 
 const Hero = () => {
-  const backgrounds = [heroImg, bg1, bg2];
+  const backgrounds = [bg1, bg2];
   const [currentBg, setCurrentBg] = useState(0);
 
   useEffect(() => {
@@ -32,15 +32,15 @@ const Hero = () => {
       <div className="hero-overlay"></div>
       
       <div className="container">
-        <div className="hero-content">
+        <div className="hero-content" style={{ paddingTop: '8rem' }}>
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="subtitle text-red"
+            className="subtitle text-primary"
           >
-            Professional Security Services
+            Elite Protection Services
           </motion.span>
           
           <motion.h1
@@ -49,7 +49,7 @@ const Hero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Securing Your <span className="text-red">World</span> With Expert Care
+            Securing Your <span className="text-primary">World</span> With Tactical Excellence
           </motion.h1>
           
           <motion.p
@@ -74,6 +74,18 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+      
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="scroll-indicator"
+      >
+        <div className="mouse">
+          <div className="wheel"></div>
+        </div>
+        <span>Scroll Down</span>
+      </motion.div>
     </section>
   );
 };

@@ -1,66 +1,106 @@
-import React from 'react';
-import { Shield, Share2, ExternalLink, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Mail, ShieldCheck, ExternalLink, Globe } from 'lucide-react';
+import cyberSecurityImg from '../assets/Cyber Security.jpeg';
+import ourTeamImg from '../assets/Our team.jpeg';
+import lieutenantImg from '../assets/Lieutenant.jpg';
+import digitalMarketingImg from '../assets/Digital Marketing Head.jpg';
+import logoImg from '../assets/logo.jpeg';
+import knivesBg from '../assets/Knives.avif';
 
-const TeamMember = ({ name, role, image, delay }) => (
+const TeamMember = ({ name, role, image, index, delay }) => (
   <motion.div 
-    initial={{ opacity: 0, scale: 0.9 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay }}
-    className="team-card"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    whileHover={{ y: -10 }}
+    transition={{ duration: 0.6, delay }}
+    className="service-card-modern"
   >
-    <div className="team-image">
-      <img src={image} alt={name} />
-      <div className="team-social">
-        <a href="#"><Share2 size={20} /></a>
-        <a href="#"><ExternalLink size={20} /></a>
-        <a href="#"><Globe size={20} /></a>
-        <a href="#"><Shield size={20} /></a>
+    <div className="card-image-wrapper">
+      <img src={image} alt={name} className="card-bg-img" />
+      <div className="card-overlay-gradient"></div>
+      <div className="card-overlay-dark"></div>
+    </div>
+    
+    <div className="card-content-modern">
+      <div className="card-top-info">
+        <span className="card-number">0{index + 1}</span>
+        <div className="card-icon-modern">
+          <ShieldCheck size={28} />
+        </div>
+      </div>
+      
+      <div className="card-text-modern">
+        <h3>{name}</h3>
+        <p style={{ color: 'var(--primary)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>{role}</p>
       </div>
     </div>
-    <div className="team-info">
-      <h4>{name}</h4>
-      <p>{role}</p>
-    </div>
+    
+    <div className="card-border-glow"></div>
   </motion.div>
 );
 
 const Team = () => {
-  const members = [
+  const team = [
     {
-      name: "Marcus Thorne",
-      role: "Head of Operations",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=600"
+      name: "Bikram Shrestha",
+      role: "Founder & CEO",
+      image: ourTeamImg
     },
     {
-      name: "Elena Rodriguez",
-      role: "VIP Protection Lead",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400&h=600"
+      name: "Arjun Thapa",
+      role: "Adviser",
+      image: lieutenantImg
     },
     {
-      name: "David Chen",
-      role: "Asset Security Expert",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=600"
+      name: "Ayuv Bastola",
+      role: "Digital Marketing Head",
+      image: digitalMarketingImg
     },
     {
-      name: "Sarah Jenkins",
-      role: "Security Consultant",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=600"
+      name: "Bijayata Hamal",
+      role: "Cyber Security",
+      image: cyberSecurityImg
     }
   ];
 
   return (
-    <section id="team" className="team bg-light">
-      <div className="container">
-        <div className="section-header">
-          <span className="subtitle">Expert Team</span>
-          <h2>Our <span className="text-primary">Professional</span> Guards</h2>
-        </div>
-        
-        <div className="team-grid">
-          {members.map((m, index) => (
-            <TeamMember key={index} {...m} delay={index * 0.1} />
+    <section id="team" className="team-section-modern relative">
+      <motion.div 
+        className="team-bg-image" 
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.1 }}
+        transition={{ 
+          duration: 20, 
+          repeat: Infinity, 
+          repeatType: "reverse", 
+          ease: "linear" 
+        }}
+        style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          backgroundImage: `url(${knivesBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.05,
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      ></motion.div>
+      <div className="container relative z-10">
+
+
+        <div className="team-grid-modern">
+          {team.map((member, index) => (
+            <TeamMember 
+              key={index} 
+              {...member} 
+              index={index}
+              delay={0.1 * index} 
+            />
           ))}
         </div>
       </div>

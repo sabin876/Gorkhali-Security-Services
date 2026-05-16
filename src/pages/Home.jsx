@@ -3,9 +3,7 @@ import Hero from '../components/Hero';
 import Counter from '../components/Counter';
 import About from '../components/About';
 import Services from '../components/Services';
-import Team from '../components/Team';
-import Vacancy from '../components/Vacancy';
-import CTA from '../components/CTA';
+
 import Testimonials from '../components/Testimonials';
 import FloatingCTA from '../components/FloatingCTA';
 
@@ -16,9 +14,8 @@ const Home = () => {
       <Counter />
       <About />
       <Services />
-      <Team />
-      <Vacancy />
-      <CTA />
+
+
       <Testimonials />
       <FloatingCTA />
     </>

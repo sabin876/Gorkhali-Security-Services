@@ -1,134 +1,184 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
-import logo from '../assets/logo.jpeg';
+import { Phone, Mail, MapPin, Send, Clock, Shield, CheckCircle2 } from 'lucide-react';
+import contactBg from '../assets/contact-bg.png';
 
 const Contact = () => {
+  const contactDetails = [
+    {
+      icon: Phone,
+      title: "Call Us",
+      value: "+971 4 333 5630",
+      description: "Mon-Fri from 8am to 6pm.",
+      action: "tel:+97143335630"
+    },
+    {
+      icon: Mail,
+      title: "Email Us",
+      value: "info@gorkhalisecurity.com",
+      description: "We'll respond within 24 hours.",
+      action: "mailto:info@gorkhalisecurity.com"
+    },
+    {
+      icon: MapPin,
+      title: "Visit Us",
+      value: "NBQ Bank Building, Office 602",
+      description: "Khalid Bin Al Waleed Road, Dubai, UAE",
+      action: "https://maps.google.com"
+    }
+  ];
+
   return (
-    <div className="contact-page">
-      <section className="contact-hero">
+    <div className="contact-modern-page">
+      {/* Hero Section */}
+      <section className="contact-hero-premium">
+        <div className="hero-bg-wrapper">
+          <img src={contactBg} alt="" className="hero-bg-img" />
+          <div className="hero-overlay-dark"></div>
+        </div>
+        
         <div className="container">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="section-header"
+            transition={{ duration: 0.8 }}
+            className="hero-text-content"
           >
-            <span className="subtitle">Contact Us</span>
-            <h2>Get In <span className="text-primary">Touch</span></h2>
-            <p className="description">
-              Have questions about our security services? We're here to help. 
-              Our team is available 24/7 to ensure your safety and peace of mind.
+            <div className="badge-modern">
+              <Shield size={16} />
+              <span>Contact Gorkhali Security</span>
+            </div>
+            <h1>Get Professional <span className="text-primary">Protection</span></h1>
+            <p>
+              Connect with our security experts today. Whether you need VIP protection, 
+              event security, or asset management, we are here to provide unmatched safety.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="contact-content">
+      {/* Main Content */}
+      <section className="contact-main-content">
         <div className="container">
-          <div className="contact-grid-page">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="contact-info-side"
-              style={{ 
-                backgroundImage: `url(${logo})`,
-                backgroundSize: '300px',
-                backgroundPosition: 'right bottom',
-                backgroundRepeat: 'no-repeat',
-                position: 'relative'
-              }}
-            >
-              <div className="info-overlay-logo"></div>
-              <div className="info-content-relative">
-                <h3>Contact Information</h3>
-                <p>Fill out the form and our team will get back to you within 24 hours.</p>
+          <div className="contact-layout-grid">
+            {/* Info Side */}
+            <div className="contact-info-panel">
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="info-header"
+              >
+                <h2>Ready to assist you <br/><span className="text-primary">24/7</span></h2>
+                <p>Our team is always on standby to ensure your complete security and peace of mind.</p>
+              </motion.div>
 
-                <div className="info-items">
-                  <div className="info-item">
-                    <div className="icon-box">
-                      <Phone size={24} className="text-primary" />
+              <div className="details-list">
+                {contactDetails.map((detail, index) => (
+                  <motion.a
+                    key={index}
+                    href={detail.action}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * index }}
+                    className="detail-card-modern"
+                  >
+                    <div className="detail-icon">
+                      <detail.icon size={24} />
                     </div>
-                    <div>
-                      <h4>Call Us</h4>
-                      <p>+1 (555) 000-1234</p>
+                    <div className="detail-text">
+                      <h4>{detail.title}</h4>
+                      <p className="detail-value">{detail.value}</p>
+                      <p className="detail-desc">{detail.description}</p>
                     </div>
-                  </div>
+                  </motion.a>
+                ))}
+              </div>
 
-                  <div className="info-item">
-                    <div className="icon-box">
-                      <Mail size={24} className="text-primary" />
-                    </div>
-                    <div>
-                      <h4>Email Us</h4>
-                      <p>info@gorkhalisecurity.com</p>
-                    </div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="icon-box">
-                      <MapPin size={24} className="text-primary" />
-                    </div>
-                    <div>
-                      <h4>Our Office</h4>
-                      <p>123 Security Plaza, New York, NY 10001, USA</p>
-                    </div>
-                  </div>
-
-                  <div className="info-item">
-                    <div className="icon-box">
-                      <Clock size={24} className="text-primary" />
-                    </div>
-                    <div>
-                      <h4>Working Hours</h4>
-                      <p>24/7 Security Support Available</p>
-                    </div>
-                  </div>
+              <div className="contact-features">
+                <div className="feature-item">
+                  <CheckCircle2 size={18} className="text-primary" />
+                  <span>Licensed & Certified Professionals</span>
+                </div>
+                <div className="feature-item">
+                  <CheckCircle2 size={18} className="text-primary" />
+                  <span>Global Security Standards</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
+            {/* Form Side */}
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="contact-form-side"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="contact-form-panel"
             >
-              <form className="contact-form">
-                <div className="form-group">
-                  <label>Full Name</label>
-                  <input type="text" placeholder="Enter your name" required />
+              <div className="form-card-glass">
+                <div className="form-header">
+                  <h3>Send a Message</h3>
+                  <p>Inquire about our services or request a custom quote.</p>
                 </div>
-                <div className="form-group">
-                  <label>Email Address</label>
-                  <input type="email" placeholder="Enter your email" required />
-                </div>
-                <div className="form-group">
-                  <label>Subject</label>
-                  <input type="text" placeholder="Subject of your message" required />
-                </div>
-                <div className="form-group">
-                  <label>Message</label>
-                  <textarea placeholder="How can we help you?" rows="5" required></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary w-full">
-                  Send Message <Send size={18} style={{ marginLeft: '10px' }} />
-                </button>
-              </form>
+
+                <form className="modern-form">
+                  <div className="form-row">
+                    <div className="form-input-group">
+                      <label>Full Name</label>
+                      <input type="text" placeholder="John Doe" required />
+                    </div>
+                    <div className="form-input-group">
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
+                    </div>
+                  </div>
+                  
+                  <div className="form-input-group">
+                    <label>Security Service Type</label>
+                    <select required>
+                      <option value="">Select a service</option>
+                      <option value="vip">VIP Bodyguard</option>
+                      <option value="event">Event Security</option>
+                      <option value="asset">Asset Protection</option>
+                      <option value="cctv">CCTV Monitoring</option>
+                      <option value="other">Other Inquiry</option>
+                    </select>
+                  </div>
+
+                  <div className="form-input-group">
+                    <label>Message</label>
+                    <textarea placeholder="Tell us about your security requirements..." rows="4" required></textarea>
+                  </div>
+
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="submit" 
+                    className="submit-btn-premium"
+                  >
+                    <span>Request A Quote</span>
+                    <Send size={18} />
+                  </motion.button>
+                </form>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="contact-map">
-        <div className="container-fluid">
-          <div className="map-placeholder">
-            {/* You can embed a real Google Map here */}
-            <div className="map-overlay">
-              <MapPin size={40} className="text-primary" />
-              <h4>Our Location</h4>
-              <p>Find us in the heart of the city</p>
+      {/* Map Section */}
+      <section className="contact-map-premium">
+        <div className="container">
+          <div className="map-frame-wrapper">
+            <div className="map-placeholder-modern">
+              <div className="map-info-card">
+                <div className="logo-small">
+                  <Shield size={24} className="text-primary" />
+                  <span>GORKHALI</span>
+                </div>
+                <p>Office 602, NBQ Bank Building, Dubai, UAE</p>
+                <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="btn-link">Get Directions</a>
+              </div>
             </div>
           </div>
         </div>
