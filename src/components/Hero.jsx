@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import heroImg from '../assets/hero.png';
+import heroSectionImg from '../assets/hero section.jpg';
 import bg1 from '../assets/Background 1.webp';
 import bg2 from '../assets/Background 2.jpeg';
 
 const Hero = () => {
-  const backgrounds = [bg1, bg2];
+  const backgrounds = [heroSectionImg, bg1, bg2];
   const [currentBg, setCurrentBg] = useState(0);
 
   useEffect(() => {
