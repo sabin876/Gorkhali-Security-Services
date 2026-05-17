@@ -9,7 +9,7 @@ const Contact = () => {
       icon: Phone,
       title: "Call Us",
       value: "+971 4 333 5630",
-      description: "Mon-Fri from 8am to 6pm.",
+      description: "Mon-Fri from 10 am to 6 pm.",
       action: "tel:+97143335630"
     },
     {
@@ -139,8 +139,9 @@ const Contact = () => {
                       <option value="">Select a service</option>
                       <option value="vip">VIP Bodyguard</option>
                       <option value="event">Event Security</option>
-                      <option value="asset">Asset Protection</option>
-                      <option value="cctv">CCTV Monitoring</option>
+                      <option value="bouncer">Club Bouncer</option>
+                      <option value="residence">Residence Security</option>
+                      <option value="general">General Security</option>
                       <option value="other">Other Inquiry</option>
                     </select>
                   </div>
