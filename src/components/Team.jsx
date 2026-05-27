@@ -43,15 +43,11 @@ const TeamMember = ({ name, role, image, index, delay }) => (
 const Team = () => {
   const team = [
     {
-      name: "Bikram Shrestha",
-      role: "Founder & CEO",
+      name: "Manoj Kumar Shrestha",
+      role: "Chairman",
       image: ourTeamImg
     },
-    {
-      name: "Arjun Thapa",
-      role: "Adviser",
-      image: lieutenantImg
-    },
+
     {
       name: "Ayuv Bastola",
       role: "Digital Marketing Head",

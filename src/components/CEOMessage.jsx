@@ -77,9 +77,9 @@ const CEOMessage = () => {
 
             <div className="ceo-signature-block-premium">
               <div className="signature-area">
-                <span className="signature-text">Bikram Shrestha</span>
+                <span className="signature-text">Manoj Kumar Shrestha</span>
                 <div className="signature-underline"></div>
-                <span className="signature-title">CEO</span>
+                <span className="signature-title">Chairman</span>
               </div>
             </div>
           </motion.div>
