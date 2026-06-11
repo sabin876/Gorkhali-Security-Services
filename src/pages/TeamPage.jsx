@@ -3,8 +3,14 @@ import { motion } from 'framer-motion';
 import { Users } from 'lucide-react';
 import Team from '../components/Team';
 import contactBg from '../assets/contact-bg.png';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 
 const TeamPage = () => {
+  useDocumentMetadata(
+    "Our Elite Tactical Team | Gorkhali Security Services",
+    "Meet the elite team behind Gorkhali Security. Highly trained professionals specializing in private security, bodyguard operations, and tactical defense solutions."
+  );
+
   return (
     <div className="team-page-modern">
       {/* Hero Section */}

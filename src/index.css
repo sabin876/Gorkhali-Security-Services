@@ -1915,7 +1915,7 @@ header.scrolled .logo-img {
 }
 /* Team Section Modern */
 .team-section-modern {
-  padding: 8rem 0;
+  padding: 1rem 0 4rem 0;
   background-color: #f8fafc;
   position: relative;
   overflow: hidden;
@@ -2878,5 +2878,281 @@ header.scrolled .logo-img {
   
   .quote-icon-bg {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Team Split Layout Styles (Concurrent Alternating Redesign)
+   ========================================================================== */
+.team-section-header-centered {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.team-badge-premium.centered {
+  margin: 0 auto 1.5rem auto;
+}
+
+.team-split-title.centered {
+  text-align: center;
+}
+
+.team-section-subtitle-centered {
+  max-width: 650px;
+  margin: 1.2rem auto 0 auto;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.team-rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.team-executive-row {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.team-row-reversed .team-row-portrait-col {
+  order: 2;
+}
+
+.team-row-reversed .team-row-details-col {
+  order: 1;
+}
+
+.team-row-portrait-col {
+  width: 100%;
+}
+
+.executive-portrait-card {
+  position: relative;
+  height: 440px;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  background: var(--secondary);
+}
+
+.executive-portrait-img-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.executive-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.executive-portrait-card:hover .executive-portrait-img {
+  transform: scale(1.05);
+}
+
+.executive-portrait-overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(10, 14, 26, 0.4) 75%,
+    rgba(10, 14, 26, 0.9) 100%
+  );
+  z-index: 2;
+}
+
+.executive-portrait-glass-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(10, 14, 26, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.8rem 1.2rem;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: flex-start;
+}
+
+.executive-name-badge {
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.executive-role-badge {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team-row-details-col {
+  width: 100%;
+}
+
+.executive-message-card {
+  background: white;
+  border-radius: 28px;
+  padding: 3rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.executive-message-card:hover {
+  border-color: rgba(191, 141, 51, 0.2);
+  box-shadow: 0 20px 45px rgba(191, 141, 51, 0.05);
+}
+
+.quote-icon-gold-massive {
+  font-family: 'Outfit', sans-serif;
+  font-size: 8rem;
+  color: rgba(191, 141, 51, 0.08);
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.executive-quote-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 0;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+.executive-profile-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.executive-info-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.executive-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.executive-role {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.executive-email-btn {
+  width: 44px;
+  height: 44px;
+  background: rgba(191, 141, 51, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.executive-email-btn:hover {
+  background: var(--primary);
+  color: var(--secondary);
+  box-shadow: 0 8px 20px rgba(191, 141, 51, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Responsiveness Redesign */
+@media (max-width: 1024px) {
+  .team-split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .team-executive-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .team-row-reversed .team-row-portrait-col {
+    order: 0;
+  }
+  
+  .team-row-reversed .team-row-details-col {
+    order: 0;
+  }
+
+  .executive-portrait-card {
+    height: 380px;
+    max-width: 340px;
+  }
+
+  .team-rows-container {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-section-header-centered {
+    margin-bottom: 1.5rem;
+  }
+
+  .team-split-title.centered {
+    font-size: 2.2rem;
+  }
+
+  .executive-portrait-card {
+    height: 320px;
+    max-width: 300px;
+  }
+
+  .executive-message-card {
+    padding: 2rem;
+  }
+
+  .executive-quote-text {
+    font-size: 1.05rem;
+  }
+
+  .executive-name {
+    font-size: 1.3rem;
   }
 }

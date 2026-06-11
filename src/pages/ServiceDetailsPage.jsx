@@ -3,6 +3,7 @@ import { useLocation, useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import contactBg from '../assets/contact-bg.png';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 
 const ServiceDetailsPage = () => {
   const { id } = useParams();
@@ -12,6 +13,11 @@ const ServiceDetailsPage = () => {
   // Use state if provided, otherwise fallback to defaults
   const description = location.state?.description || "Comprehensive security solutions tailored to your specific needs. Our expert team provides top-tier protection and peace of mind.";
   const image = location.state?.image || contactBg;
+
+  useDocumentMetadata(
+    `${serviceTitle} | Gorkhali Security Services`,
+    description
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);

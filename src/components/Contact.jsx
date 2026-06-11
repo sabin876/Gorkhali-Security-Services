@@ -2,8 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Clock, Shield, CheckCircle2 } from 'lucide-react';
 import contactBg from '../assets/contact-bg.png';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 
 const Contact = () => {
+  useDocumentMetadata(
+    "Contact Gorkhali Security | Elite Private Protection Dubai",
+    "Get in touch with Gorkhali Security Services. Contact our Dubai headquarters for premium bodyguard services, event safety management, and custom VIP security plans."
+  );
+
   const contactDetails = [
     {
       icon: Phone,
