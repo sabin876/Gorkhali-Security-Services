@@ -17,7 +17,7 @@ const FloatingCTA = () => {
       </motion.a>
       
       <motion.a 
-        href="https://wa.me/971545337070"
+        href="https://wa.me/971505576217"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}

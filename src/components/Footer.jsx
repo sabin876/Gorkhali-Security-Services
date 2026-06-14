@@ -51,7 +51,7 @@ const Footer = () => {
             <h3>Contact Info</h3>
             <div className="contact-item">
               <MapPin className="text-primary" size={24} />
-              <p>Office #602, NBQ Bank Building, Khalid Bin Al Waleed Road, Dubai, UAE</p>
+              <p>Office #602, NBQ Building, Khalid Bin Al Waleed Rd, Al Hamriya, Dubai</p>
             </div>
             <div className="contact-item">
               <Phone className="text-primary" size={24} />
@@ -59,7 +59,7 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <Mail className="text-primary" size={24} />
-              <p>info@gorkhalisecurity.com</p>
+              <p>info@gssdubai.com</p>
             </div>
           </div>
         </div>

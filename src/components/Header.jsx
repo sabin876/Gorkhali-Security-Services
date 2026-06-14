@@ -19,7 +19,7 @@ const Header = ({ isScrolled }) => {
           <div className="top-bar-content">
             <div className="contact-info">
               <span><Phone size={16} /> +971 4 333 5630</span>
-              <span><Mail size={16} /> info@gorkhalisecurity.com</span>
+              <span><Mail size={16} /> info@gssdubai.com</span>
               <span><Clock size={16} /> 24/7 Security Support</span>
             </div>
             <div className="social-links">
@@ -64,7 +64,7 @@ const Header = ({ isScrolled }) => {
               <li><HashLink smooth to="/#home">Home</HashLink></li>
               <li><HashLink smooth to="/#about">About Us</HashLink></li>
               <li><HashLink smooth to="/#services">Services</HashLink></li>
-              <li><HashLink smooth to="/team#team">Our Team</HashLink></li>
+              <li><HashLink smooth to="/team#top">Our Team</HashLink></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
             
@@ -91,7 +91,7 @@ const Header = ({ isScrolled }) => {
                   { to: "/#home", label: "Home" },
                   { to: "/#about", label: "About Us" },
                   { to: "/#services", label: "Services" },
-                  { to: "/team#team", label: "Our Team" },
+                  { to: "/team#top", label: "Our Team" },
                   { to: "/contact", label: "Contact", isLink: true }
                 ].map((link, i) => (
                   <motion.li 

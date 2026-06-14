@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Users } from 'lucide-react';
 import Team from '../components/Team';
-import contactBg from '../assets/contact-bg.png';
+import teamImg from '../assets/team.jpeg';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 
 const TeamPage = () => {
@@ -12,11 +12,11 @@ const TeamPage = () => {
   );
 
   return (
-    <div className="team-page-modern">
+    <div id="top" className="team-page-modern">
       {/* Hero Section */}
-      <section className="contact-hero-premium" style={{ height: '50vh' }}>
+      <section className="contact-hero-premium" style={{ height: '60vh' }}>
         <div className="hero-bg-wrapper">
-          <img src={contactBg} alt="" className="hero-bg-img" />
+          <img src={teamImg} alt="" className="hero-bg-img" />
           <div className="hero-overlay-dark"></div>
         </div>
         

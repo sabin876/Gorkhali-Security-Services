@@ -31,11 +31,11 @@ const CTA = () => {
             </p>
             
             <div className="cta-actions-premium">
-              <a href="tel:+9779841000000" className="btn btn-premium">
+              <a href="tel:+97143335630" className="btn btn-premium">
                 <Phone size={20} />
                 <span>Immediate Consultation</span>
               </a>
-              <a href="https://wa.me/9779841000000" target="_blank" rel="noopener noreferrer" className="btn btn-outline-premium">
+              <a href="https://wa.me/971505576217" target="_blank" rel="noopener noreferrer" className="btn btn-outline-premium">
                 <MessageCircle size={20} />
                 <span>WhatsApp Elite Support</span>
                 <ArrowRight size={16} className="arrow" />

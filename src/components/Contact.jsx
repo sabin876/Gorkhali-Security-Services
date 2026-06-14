@@ -21,15 +21,15 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      value: "info@gorkhalisecurity.com",
+      value: "info@gssdubai.com",
       description: "We'll respond within 24 hours.",
-      action: "mailto:info@gorkhalisecurity.com"
+      action: "mailto:info@gssdubai.com"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      value: "NBQ Bank Building, Office 602",
-      description: "Khalid Bin Al Waleed Road, Dubai, UAE",
+      value: "NBQ Building, Office 602",
+      description: "Khalid Bin Al Waleed Rd, Al Hamriya, Dubai",
       action: "https://maps.google.com"
     }
   ];
@@ -183,7 +183,7 @@ const Contact = () => {
                   <Shield size={24} className="text-primary" />
                   <span>GORKHALI</span>
                 </div>
-                <p>Office 602, NBQ Bank Building, Dubai, UAE</p>
+                <p>Office 602, NBQ Building, Khalid Bin Al Waleed Rd, Al Hamriya, Dubai</p>
                 <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="btn-link">Get Directions</a>
               </div>
             </div>

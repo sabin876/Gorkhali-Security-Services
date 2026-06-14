@@ -24,12 +24,6 @@ const Team = () => {
       message: "We ensure fiscal discipline and strategic capital allocation to sustain our state-of-the-art security apparatus. By maintaining operational efficiency and investing in cutting-edge defensive technologies, we deliver premium, high-value protection services with unmatched transparency and integrity."
     },
     {
-      name: "Ram Tamang",
-      role: "Relation Manager",
-      image: relationManagerImg,
-      message: "Elite client partnerships are built on absolute trust and active communication. My responsibility is to analyze corporate and private security objectives, aligning them with our high-grade tactical solutions to ensure rapid, tailored responses to all security needs."
-    },
-    {
       name: "Kiran Gurung",
       role: "Corporate Strategy Manager",
       image: corporateStrategyManagerImg,
@@ -46,6 +40,12 @@ const Team = () => {
       role: "Digital Marketing Head",
       image: digitalMarketingImg,
       message: "We implement strategic communications and targeted brand positioning to align Gorkhali Security's elite reputation with international defense standards. Our goal is to connect high-risk organizations and private individuals with our world-class protective services through precise digital channels."
+    },
+    {
+      name: "Ram Tamang",
+      role: "Relation Manager",
+      image: relationManagerImg,
+      message: "Elite client partnerships are built on absolute trust and active communication. My responsibility is to analyze corporate and private security objectives, aligning them with our high-grade tactical solutions to ensure rapid, tailored responses to all security needs."
     }
   ];
 
@@ -88,7 +88,7 @@ const Team = () => {
             <span className="text-primary">Meet Our Visionary Professionals</span>
           </h2>
           <p className="team-section-subtitle-centered">
-            Built on the legendary Gorkhali bravery, integrity, and modern tactical excellence.
+            <strong>Built on the legendary Gorkhali bravery, integrity, and modern tactical excellence.</strong>
           </p>
         </div>
 
