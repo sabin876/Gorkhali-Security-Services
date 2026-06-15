@@ -2171,6 +2171,12 @@ header.scrolled .logo-img {
   align-items: flex-start;
 }
 
+.contact-layout-grid:has(> :only-child) {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .info-header h2 {
   font-size: 3rem;
   margin-bottom: 1.5rem;

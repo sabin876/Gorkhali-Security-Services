@@ -114,7 +114,8 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Form Side */}
+            {/* Form Side - Commented out for now */}
+            {/*
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -169,6 +170,7 @@ const Contact = () => {
                 </form>
               </div>
             </motion.div>
+            */}
           </div>
         </div>
       </section>

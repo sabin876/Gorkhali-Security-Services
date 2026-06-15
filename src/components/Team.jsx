@@ -15,7 +15,7 @@ const Team = () => {
       name: "Manoj Kumar Shrestha",
       role: "Chairman",
       image: chairmanImg,
-      message: "Gorkhali Security Services stands as a premier bulwark of defense, combining the historical courage and loyalty of the Gorkhali tradition with advanced modern tactical operations. Our mission is to provide uncompromising protection, elite threat management, and absolute peace of mind for our global clientele."
+      message: "Manoj Kumar Shrestha ‘Gorkhali’ is Chairman of Gorkhali Security Services LLC and MPM IT Services LLC in the UAE. He is a businessman, social worker, and Vice President of the Non-Resident Nepali Association (NRNA) International Coordination Council. Known for his humanitarian work during COVID-19 (including receiving the “COVID-19 Hero Award” from Sheikh Al Maktoum), he also supports sports and community"
     },
     {
       name: "Thaneshwor Shapkota",
@@ -24,7 +24,7 @@ const Team = () => {
       message: "We ensure fiscal discipline and strategic capital allocation to sustain our state-of-the-art security apparatus. By maintaining operational efficiency and investing in cutting-edge defensive technologies, we deliver premium, high-value protection services with unmatched transparency and integrity."
     },
     {
-      name: "Kiran Gurung",
+      name: "Ramesh Gautam",
       role: "Corporate Strategy Manager",
       image: corporateStrategyManagerImg,
       message: "Strategic foresight and adaptive planning are critical to navigating today's complex security environment. We align Gorkhali's operational capabilities with long-term security trends to ensure we remain the gold standard in protective intelligence and tactical defense."
