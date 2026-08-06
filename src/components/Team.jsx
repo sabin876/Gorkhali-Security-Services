@@ -8,6 +8,7 @@ import knivesBg from '../assets/Knives.avif';
 import financeManagerImg from '../assets/finance Manager.jpeg';
 import relationManagerImg from '../assets/relation mager.jpeg';
 import corporateStrategyManagerImg from '../assets/Corporate Strategy Manager.jpeg';
+import advisorImg from '../assets/Advisor.png';
 
 const Team = () => {
   const team = [
@@ -16,6 +17,12 @@ const Team = () => {
       role: "Chairman",
       image: chairmanImg,
       message: "Manoj Kumar Shrestha ‘Gorkhali’ is Chairman of Gorkhali Security Services LLC and MPM IT Services LLC in the UAE. He is a businessman, social worker, and Vice President of the Non-Resident Nepali Association (NRNA) International Coordination Council. Known for his humanitarian work during COVID-19 (including receiving the “COVID-19 Hero Award” from Sheikh Al Maktoum), he also supports sports and community"
+    },
+    {
+      name: "Brigadier General (Retd.) Nirman Singh Gurung",
+      role: "Advisor – Gurkhas Security Service LLC, UAE",
+      image: advisorImg,
+      message: "Brigadier General (Retd.) Nirman Singh Gurung is a former senior Nepal Army officer with over 30 years of leadership, operational command, and United Nations peacekeeping experience. He served in missions in Yugoslavia, Lebanon, Ethiopia/Eritrea, the Democratic Republic of the Congo, and South Sudan, holding key command and leadership appointments. A recipient of the Gorkha Dakshin Bahu IV and several national and UN service medals, he provides strategic guidance in security management, leadership development, and operational excellence — supporting the company's mission of delivering trusted, disciplined, and world-class security services."
     },
     {
       name: "Thaneshwor Shapkota",
