@@ -1,0 +1,96 @@
+
+name: Deploy GSS backend
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: django-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SERVER_HOST: ${{ secrets.SERVER_HOST }}
+      SERVER_USER: ${{ secrets.SERVER_USER }}
+      DEPLOY_PATH: /home2/drulhaso/api.gssdubai.com/gss_temp
+      # Absolute path to the existing Python app virtual environment on the server.
+      BACKEND_VENV_PATH: ${{ vars.BACKEND_VENV_PATH }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          : "${SERVER_HOST:?Set the SERVER_HOST secret}"
+          : "${SERVER_USER:?Set the SERVER_USER secret}"
+          : "${SSH_PRIVATE_KEY:?Set the SSH_PRIVATE_KEY secret}"
+          : "${SSH_KNOWN_HOSTS:?Set the SSH_KNOWN_HOSTS secret}"
+          : "${BACKEND_VENV_PATH:?Set the BACKEND_VENV_PATH repository variable}"
+
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy Django source code
+        run: |
+          set -euo pipefail
+          rsync -avz \
+            --exclude=".env*" \
+            --exclude="venv/" \
+            --exclude=".venv/" \
+            --exclude="__pycache__/" \
+            --exclude="*.pyc" \
+            --exclude="*.sqlite3*" \
+            --exclude="media/" \
+            --exclude="staticfiles/" \
+            --exclude="/tmp/" \
+            --exclude="/.htaccess" \
+            --exclude="/passenger_wsgi.py" \
+            -e "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes" \
+            backend/ \
+            "$SERVER_USER@$SERVER_HOST:$DEPLOY_PATH/"
+
+      - name: Install dependencies, migrate, and restart Passenger
+        run: |
+          set -euo pipefail
+          printf -v remote_command 'bash -se -- %q %q' "$DEPLOY_PATH" "$BACKEND_VENV_PATH"
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            "$SERVER_USER@$SERVER_HOST" "$remote_command" <<'REMOTE'
+          set -euo pipefail
+          cd "$1"
+          if [[ "$2" != /* || ! -f "$2/bin/activate" ]]; then
+            echo "BACKEND_VENV_PATH must point to the existing server virtual environment." >&2
+            exit 1
+          fi
+          source "$2/bin/activate"
+
+          python -m pip install -r requirements.txt
+          python manage.py check
+          python manage.py migrate --noinput
+          python manage.py collectstatic --noinput
+
+          # cPanel/Passenger reloads this application on the next request.
+          mkdir -p tmp
+          touch tmp/restart.txt
+          REMOTE
