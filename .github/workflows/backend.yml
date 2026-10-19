@@ -23,7 +23,7 @@ jobs:
     env:
       SERVER_HOST: ${{ secrets.SERVER_HOST }}
       SERVER_USER: ${{ secrets.SERVER_USER }}
-      DEPLOY_PATH: /home2/drulhaso/api.gssdubai.com/gss_temp
+      DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
       # Absolute path to the existing Python app virtual environment on the server.
       BACKEND_VENV_PATH: ${{ vars.BACKEND_VENV_PATH }}
 
