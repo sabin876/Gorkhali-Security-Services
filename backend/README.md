@@ -134,8 +134,13 @@ root. Passenger reloads the application on the next request.
 Uploads preserve server `.env*` files, virtual environments, SQLite databases,
 uploaded media, collected static files, `.htaccess`, `passenger_wsgi.py`, and
 `tmp/`. The workflow does not delete remote files. Files removed from the repo
-therefore require separate removal on the server. cPanel must already be
-configured to serve `staticfiles/` and `media/` at their corresponding URLs.
+therefore require separate removal on the server. WhiteNoise serves collected
+static assets at `/static/`, including Django admin, Jazzmin, and custom CSS.
+It compresses assets and generates hashed filenames during `collectstatic`.
+The deployment already runs `collectstatic --noinput` before restarting
+Passenger; no separate cPanel static-file mapping is required when requests
+are routed to the Django application. Uploaded files at `/media/` still need
+to be served by cPanel or a separate media service.
 The workflow activates the virtual environment but does not load `.env` files;
 any CLI environment settings must be configured separately.
 
