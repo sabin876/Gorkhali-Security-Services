@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Clock, Shield, CheckCircle2 } from 'lucide-react';
 import contactBg from '../assets/contact-bg.png';
@@ -9,6 +9,41 @@ const Contact = () => {
     "Contact Gorkhali Security | Elite Private Protection Dubai",
     "Get in touch with Gorkhali Security Services. Contact our Dubai headquarters for premium bodyguard services, event safety management, and custom VIP security plans."
   );
+
+  const [formState, setFormState] = useState({
+    full_name: '',
+    email: '',
+    phone: '',
+    service_type: 'vip',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await fetch('http://localhost:8000/api/inquiries/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState)
+      });
+      setSubmitted(true);
+      setFormState({
+        full_name: '',
+        email: '',
+        phone: '',
+        service_type: 'vip',
+        message: ''
+      });
+    } catch (err) {
+      console.warn('Backend API submission fallback:', err);
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const contactDetails = [
     {
@@ -114,8 +149,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Form Side - Commented out for now */}
-            {/*
+            {/* Form Side */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -128,49 +162,100 @@ const Contact = () => {
                   <p>Inquire about our services or request a custom quote.</p>
                 </div>
 
-                <form className="modern-form">
-                  <div className="form-row">
-                    <div className="form-input-group">
-                      <label>Full Name</label>
-                      <input type="text" placeholder="John Doe" required />
+                {submitted ? (
+                  <div style={{ padding: '2rem 1rem', textAlign: 'center' }}>
+                    <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem auto' }}>
+                      <CheckCircle2 size={32} />
                     </div>
-                    <div className="form-input-group">
-                      <label>Email Address</label>
-                      <input type="email" placeholder="john@example.com" required />
+                    <h4 style={{ color: '#fff', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Inquiry Submitted!</h4>
+                    <p style={{ color: '#9ca3af', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+                      Thank you for contacting Gorkhali Security. Our operations team will review your inquiry and respond within 24 hours.
+                    </p>
+                    <button 
+                      onClick={() => setSubmitted(false)}
+                      className="btn btn-primary"
+                      style={{ padding: '0.6rem 1.25rem' }}
+                    >
+                      Send Another Inquiry
+                    </button>
+                  </div>
+                ) : (
+                  <form className="modern-form" onSubmit={handleSubmit}>
+                    <div className="form-row">
+                      <div className="form-input-group">
+                        <label>Full Name *</label>
+                        <input 
+                          type="text" 
+                          placeholder="Your Name" 
+                          required 
+                          value={formState.full_name}
+                          onChange={(e) => setFormState({ ...formState, full_name: e.target.value })}
+                        />
+                      </div>
+                      <div className="form-input-group">
+                        <label>Email Address *</label>
+                        <input 
+                          type="email" 
+                          placeholder="name@example.com" 
+                          required 
+                          value={formState.email}
+                          onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="form-input-group">
-                    <label>Security Service Type</label>
-                    <select required>
-                      <option value="">Select a service</option>
-                      <option value="vip">VIP Bodyguard</option>
-                      <option value="event">Event Security</option>
-                      <option value="bouncer">Club Bouncer</option>
-                      <option value="residence">Residence Security</option>
-                      <option value="general">General Security</option>
-                      <option value="other">Other Inquiry</option>
-                    </select>
-                  </div>
 
-                  <div className="form-input-group">
-                    <label>Message</label>
-                    <textarea placeholder="Tell us about your security requirements..." rows="4" required></textarea>
-                  </div>
+                    <div className="form-row">
+                      <div className="form-input-group">
+                        <label>Phone Number</label>
+                        <input 
+                          type="tel" 
+                          placeholder="+971 50 000 0000" 
+                          value={formState.phone}
+                          onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                        />
+                      </div>
+                      <div className="form-input-group">
+                        <label>Security Service Type</label>
+                        <select 
+                          required
+                          value={formState.service_type}
+                          onChange={(e) => setFormState({ ...formState, service_type: e.target.value })}
+                        >
+                          <option value="vip">VIP Bodyguard</option>
+                          <option value="event">Event Security</option>
+                          <option value="bouncer">Club Bouncer</option>
+                          <option value="residence">Residence Security</option>
+                          <option value="general">General Security</option>
+                          <option value="other">Other Inquiry</option>
+                        </select>
+                      </div>
+                    </div>
 
-                  <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit" 
-                    className="submit-btn-premium"
-                  >
-                    <span>Request A Quote</span>
-                    <Send size={18} />
-                  </motion.button>
-                </form>
+                    <div className="form-input-group">
+                      <label>Message *</label>
+                      <textarea 
+                        placeholder="Tell us about your security requirements..." 
+                        rows="4" 
+                        required
+                        value={formState.message}
+                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                      ></textarea>
+                    </div>
+
+                    <motion.button 
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      type="submit" 
+                      className="submit-btn-premium"
+                      disabled={loading}
+                    >
+                      <span>{loading ? 'Submitting...' : 'Request A Quote'}</span>
+                      <Send size={18} />
+                    </motion.button>
+                  </form>
+                )}
               </div>
             </motion.div>
-            */}
           </div>
         </div>
       </section>

@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Gorkhali Security - Custom Admin Theme (Clean, Simple, High-Contrast)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+html, body, .wrapper, .content-wrapper, .content {
+  font-family: 'Outfit', 'Inter', -apple-system, sans-serif !important;
+  background-color: #0d121d !important;
+  color: #f8fafc !important;
+}
+
+/* Navbar */
+.main-header.navbar {
+  background-color: #111726 !important;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.main-header .nav-link {
+  color: #cbd5e1 !important;
+  font-weight: 500 !important;
+}
+
+.main-header .nav-link:hover {
+  color: #ffffff !important;
+}
+
+.navbar-brand, .brand-link {
+  background-color: #0b0f19 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.brand-text {
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  color: #c5a059 !important;
+}
+
+/* Sidebar */
+.main-sidebar {
+  background-color: #0f1422 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.sidebar a {
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+}
+
+.nav-sidebar .nav-item > .nav-link.active {
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.25), rgba(197, 160, 89, 0.05)) !important;
+  color: #ffffff !important;
+  border-left: 3px solid #c5a059 !important;
+  font-weight: 600 !important;
+}
+
+/* Content Header & Titles */
+.content-header {
+  padding: 1.25rem 1rem !important;
+}
+
+.content-header h1 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px !important;
+  font-size: 1.6rem !important;
+}
+
+/* Cards & App Sections */
+.card {
+  background-color: #141b2c !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  overflow: hidden !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.card-header {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 1rem 1.25rem !important;
+}
+
+.card-title {
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  font-size: 1.05rem !important;
+}
+
+/* Tables */
+.table {
+  color: #e2e8f0 !important;
+  margin-bottom: 0 !important;
+  background-color: transparent !important;
+}
+
+.table th {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 0.9rem 1.1rem !important;
+}
+
+.table td {
+  padding: 0.95rem 1.1rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  vertical-align: middle !important;
+  color: #e5e7eb !important;
+}
+
+.table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Buttons */
+.btn-primary, .btn-warning, .btn-info, .btn-success, .btn-secondary {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  padding: 0.45rem 1rem !important;
+  font-size: 0.88rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #dfba73, #c5a059) !important;
+  border: none !important;
+  color: #0b0f19 !important;
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25) !important;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(135deg, #ecd399, #d4ae65) !important;
+  color: #000000 !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-info {
+  background-color: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+.btn-success {
+  background-color: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+}
+
+/* Form inputs & search */
+.form-control, select.form-control {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+.form-control:focus {
+  border-color: #c5a059 !important;
+  box-shadow: 0 0 0 0.2rem rgba(197, 160, 89, 0.25) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.breadcrumb-item a {
+  color: #c5a059 !important;
+}
+
+.breadcrumb-item.active {
+  color: #94a3b8 !important;
+}
+
+/* Badges */
+.badge {
+  border-radius: 6px !important;
+  padding: 0.4rem 0.7rem !important;
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+}
+
+/* Footer */
+.main-footer {
+  background-color: #0b0f19 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #64748b !important;
+  font-size: 0.85rem !important;
+}

@@ -23,10 +23,9 @@ function App() {
       }
     };
 
-    // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 1500);
 
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -41,7 +40,7 @@ function App() {
         <AnimatePresence mode="wait">
           {loading && <Loader key="loader" />}
         </AnimatePresence>
-        
+
         {!loading && (
           <>
             <Header isScrolled={isScrolled} />
