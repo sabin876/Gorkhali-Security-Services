@@ -63,6 +63,8 @@ jobs:
             --exclude="__pycache__" \
             --exclude="*.pyc" \
             --exclude="*.sqlite3*" \
+            --exclude="./logs" \
+            --exclude="*.log*" \
             --exclude="media" \
             --exclude="staticfiles" \
             --exclude="./tmp" \

@@ -144,6 +144,56 @@ to be served by cPanel or a separate media service.
 The workflow activates the virtual environment but does not load `.env` files;
 any CLI environment settings must be configured separately.
 
+## Production logging
+
+Logging remains active with `DEBUG=False`. By default, logs are written to
+`backend/logs/` (the `logs/` directory inside the deployed application root):
+
+- `application.log`: application messages at INFO and above, plus Django
+  warnings and errors, including HTTP 4xx and 5xx responses.
+- `errors.log`: ERROR and CRITICAL messages, including tracebacks for
+  unhandled Django request exceptions.
+- Standard error: the same configured messages, available through the
+  Passenger log configured by your host.
+
+Each file rotates at approximately 10 MiB and retains five backups. File locks
+allow Passenger workers to share the logs. The deployment excludes logs from
+uploads and preserves existing server logs.
+
+Optional `.env` or process environment settings:
+
+```dotenv
+LOG_LEVEL=INFO
+DJANGO_LOG_LEVEL=WARNING
+# Optional absolute path to a private, writable directory:
+# LOG_DIR=/home2/drulhaso/gss-logs
+```
+
+The Python app's user must be able to create and write to `LOG_DIR`. Keep this
+directory outside public document roots and static/media mappings. Startup
+errors before Django finishes configuring logging appear in Passenger's own
+log. Successful production requests are recorded by the web server's access
+log; Django automatically logs failing requests.
+
+Use module loggers for application events:
+
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+logger.info("Background task completed")
+
+try:
+    run_background_task()
+except Exception:
+    logger.exception("Background task failed")
+    raise
+```
+
+Avoid including passwords, tokens, or submitted inquiry data in log messages.
+To inspect errors through SSH, run `tail -n 100 logs/errors.log` from the app
+root (or use the configured `LOG_DIR`).
+
 ## 📡 API Endpoints Reference
 
 | Method | Endpoint | Description |
