@@ -11,6 +11,68 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG", default=False, cast=bool)
 
+# These handlers run independently of DEBUG, including under Passenger.
+LOG_LEVEL = config('LOG_LEVEL', default='INFO').upper()
+DJANGO_LOG_LEVEL = config('DJANGO_LOG_LEVEL', default='WARNING').upper()
+LOG_DIR = Path(config('LOG_DIR', default=str(BASE_DIR / 'logs'))).resolve()
+LOG_DIR.mkdir(mode=0o750, parents=True, exist_ok=True)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'production': {
+            'format': '{asctime} {levelname} {name} pid={process:d} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'production',
+            'level': LOG_LEVEL,
+            'stream': 'ext://sys.stderr',
+        },
+        'application_file': {
+            # File locking supports multiple Passenger worker processes.
+            'class': 'concurrent_log_handler.ConcurrentRotatingFileHandler',
+            'formatter': 'production',
+            'level': LOG_LEVEL,
+            'filename': str(LOG_DIR / 'application.log'),
+            'maxBytes': 10 * 1024 * 1024,
+            'backupCount': 5,
+            'encoding': 'utf-8',
+            'chmod': 0o640,
+        },
+        'error_file': {
+            'class': 'concurrent_log_handler.ConcurrentRotatingFileHandler',
+            'formatter': 'production',
+            'level': 'ERROR',
+            'filename': str(LOG_DIR / 'errors.log'),
+            'maxBytes': 10 * 1024 * 1024,
+            'backupCount': 5,
+            'encoding': 'utf-8',
+            'chmod': 0o640,
+        },
+    },
+    'root': {
+        'handlers': ['console', 'application_file', 'error_file'],
+        'level': LOG_LEVEL,
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'application_file', 'error_file'],
+            'level': DJANGO_LOG_LEVEL,
+            'propagate': False,
+        },
+        'django.server': {
+            'handlers': ['console', 'application_file', 'error_file'],
+            'level': LOG_LEVEL,
+            'propagate': False,
+        },
+    },
+}
+
 ALLOWED_HOSTS = ['*']
 
 # Application definition
