@@ -122,6 +122,9 @@ Before running it:
    the variable is `/home2/drulhaso/virtualenv/api.gssdubai.com/gss_temp/3.12`.
    Use the actual path from cPanel; this is an example.
 
+Uploads use a compressed tar archive over SSH, so `rsync` is not required on
+the cPanel server. The server needs `tar` with gzip support and Bash.
+
 Each deployment uploads only backend source, activates the existing server
 virtual environment, installs `requirements.txt`, runs Django's system checks
 and database migrations, and collects static files. Only after those commands

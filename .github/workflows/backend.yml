@@ -55,21 +55,27 @@ jobs:
       - name: Deploy Django source code
         run: |
           set -euo pipefail
-          rsync -avz \
+          archive="$RUNNER_TEMP/backend-source.tar.gz"
+          tar -czf "$archive" -C backend \
             --exclude=".env*" \
-            --exclude="venv/" \
-            --exclude=".venv/" \
-            --exclude="__pycache__/" \
+            --exclude="venv" \
+            --exclude=".venv" \
+            --exclude="__pycache__" \
             --exclude="*.pyc" \
             --exclude="*.sqlite3*" \
-            --exclude="media/" \
-            --exclude="staticfiles/" \
-            --exclude="/tmp/" \
-            --exclude="/.htaccess" \
-            --exclude="/passenger_wsgi.py" \
-            -e "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes" \
-            backend/ \
-            "$SERVER_USER@$SERVER_HOST:$DEPLOY_PATH/"
+            --exclude="media" \
+            --exclude="staticfiles" \
+            --exclude="./tmp" \
+            --exclude="./.htaccess" \
+            --exclude="./passenger_wsgi.py" \
+            .
+
+          # Stream the archive over SSH; the server only needs tar, not rsync.
+          printf -v remote_command \
+            'mkdir -p -- %q && tar -xzf - --no-same-owner --no-same-permissions -C %q' \
+            "$DEPLOY_PATH" "$DEPLOY_PATH"
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            "$SERVER_USER@$SERVER_HOST" "$remote_command" < "$archive"
 
       - name: Install dependencies, migrate, and restart Passenger
         run: |
