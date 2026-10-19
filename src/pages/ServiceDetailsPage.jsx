@@ -8,6 +8,7 @@ import eventsImg from '../assets/events.png';
 import bodyguardImg from '../assets/bodyguard.png';
 import generalImg from '../assets/general.png';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
+import { API_ENDPOINTS, resolveMediaUrl } from '../config/api';
 
 const imageMap = {
   'sports-club-security': sportsImg,
@@ -42,7 +43,7 @@ const ServiceDetailsPage = () => {
 
     if (id) {
       setLoading(true);
-      fetch(`http://localhost:8000/api/services/${id}/`)
+      fetch(API_ENDPOINTS.serviceDetail(id))
         .then((res) => {
           if (!res.ok) throw new Error('Service not found by slug');
           return res.json();
@@ -53,7 +54,7 @@ const ServiceDetailsPage = () => {
               title: data.title,
               short_description: data.short_description || service.short_description,
               detailed_description: data.detailed_description || "",
-              image_url: data.image || data.image_url || imageMap[data.slug] || imageMap[id] || service.image_url || contactBg,
+              image_url: resolveMediaUrl(data.image) || data.image_url || imageMap[data.slug] || imageMap[id] || service.image_url || contactBg,
             });
           }
         })

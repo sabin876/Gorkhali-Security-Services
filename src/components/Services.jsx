@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, UserPlus, Truck, Video, Users, FileText, ArrowRight, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { API_ENDPOINTS, resolveMediaUrl } from '../config/api';
 
 // Import fallback images
 import sportsImg from '../assets/sports.png';
@@ -136,7 +137,7 @@ const Services = () => {
   const [servicesList, setServicesList] = useState(defaultServices);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/services/')
+    fetch(API_ENDPOINTS.services)
       .then((res) => {
         if (!res.ok) throw new Error('API request failed');
         return res.json();
@@ -145,7 +146,7 @@ const Services = () => {
         if (Array.isArray(data) && data.length > 0) {
           const mapped = data.map((item, idx) => {
             const IconComponent = iconMap[item.icon_name] || Shield;
-            const img = item.image || item.image_url || imageMap[item.slug] || [sportsImg, eventsImg, bodyguardImg, generalImg][idx % 4];
+            const img = resolveMediaUrl(item.image) || item.image_url || imageMap[item.slug] || [sportsImg, eventsImg, bodyguardImg, generalImg][idx % 4];
             const animTypes = ['left', 'right', 'bottom', 'scale'];
             return {
               id: item.id,

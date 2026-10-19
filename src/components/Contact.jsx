@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Clock, Shield, CheckCircle2 } from 'lucide-react';
 import contactBg from '../assets/contact-bg.png';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
+import { API_ENDPOINTS } from '../config/api';
 
 const Contact = () => {
   useDocumentMetadata(
@@ -24,7 +25,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch('http://localhost:8000/api/inquiries/', {
+      await fetch(API_ENDPOINTS.inquiries, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formState)

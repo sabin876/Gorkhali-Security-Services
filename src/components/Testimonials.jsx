@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.jpeg';
+import { API_ENDPOINTS, resolveMediaUrl } from '../config/api';
 
 const defaultTestimonials = [
   {
@@ -41,7 +42,7 @@ const Testimonials = () => {
 
   // Fetch testimonials dynamically from Django backend
   useEffect(() => {
-    fetch('http://localhost:8000/api/testimonials/')
+    fetch(API_ENDPOINTS.testimonials)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch testimonials');
         return res.json();
@@ -53,7 +54,7 @@ const Testimonials = () => {
             role: item.designation_or_company || "Valued Client",
             content: item.content,
             rating: item.rating || 5,
-            image: item.image || "",
+            image: resolveMediaUrl(item.image) || "",
           }));
           setTestimonialsList(mapped);
         }

@@ -9,6 +9,7 @@ import financeManagerImg from '../assets/finance Manager.jpeg';
 import relationManagerImg from '../assets/relation mager.jpeg';
 import corporateStrategyManagerImg from '../assets/Corporate Strategy Manager.jpeg';
 import advisorImg from '../assets/Advisor.png';
+import { API_ENDPOINTS, resolveMediaUrl } from '../config/api';
 
 const memberImageMap = {
   "Manoj Kumar Shrestha": chairmanImg,
@@ -69,7 +70,7 @@ const Team = () => {
   const [teamList, setTeamList] = useState(defaultTeam);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/team/')
+    fetch(API_ENDPOINTS.team)
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch team from backend');
         return res.json();
@@ -79,7 +80,7 @@ const Team = () => {
           const mapped = data.map((item) => ({
             name: item.name,
             role: item.designation,
-            image: item.image || item.image_url || memberImageMap[item.name] || chairmanImg,
+            image: resolveMediaUrl(item.image) || item.image_url || memberImageMap[item.name] || chairmanImg,
             message: item.bio || "Tactical security leader dedicated to operational excellence and client protection."
           }));
           setTeamList(mapped);
